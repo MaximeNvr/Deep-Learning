@@ -1,0 +1,3 @@
+flask
+tensorflow
+pickle5  # Si nécessaire pour gérer le fichier pickle
