@@ -1,0 +1,11 @@
+.gear {
+    background: url('../images/gear.png') no-repeat center; 
+    background-size: contain; 
+    animation: spin 4s linear infinite; /* Rotate infinitely */
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(80deg); /* Apply color filter effects */
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); } /* Initial rotation */
+    to { transform: rotate(360deg); } /* Complete rotation */
+}

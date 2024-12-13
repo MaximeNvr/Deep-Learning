@@ -1,0 +1,34 @@
+.dynamic-text {
+    font-size: 8rem;
+    color: transparent;
+    background-clip: text;
+    animation: textEffect 6s infinite linear; 
+    transform: skew(10deg);
+}
+
+@keyframes textEffect {
+    0% {
+        color: rgba(255, 255, 255, 0.8);
+        transform: translate(0, 0) skew(0deg) scale(1); /* Initial position and size */
+    }
+    20% {
+        color: rgba(255, 255, 255, 0.5);
+        transform: translate(20vw, 50vh) rotate(-5deg) scale(2); 
+    }
+    40% {
+        color: rgba(255, 255, 255, 0.8);
+        transform: translate(35vw, 5vh) rotate(5deg) scale(0.6); 
+    }
+    60% {
+        color: rgba(255, 255, 255, 0.5);
+        transform: translate(-30vw, 40vh) rotate(-10deg) scale(1.5);
+    }
+    80% {
+        color: rgba(255, 255, 255, 0.8);
+        transform: translate(-20vw, 5vh) rotate(0deg) scale(0.8); 
+    }
+    100% {
+        color: rgba(255, 255, 255, 0.5);
+        transform: translate(0, 0) scale(1);
+    }
+}

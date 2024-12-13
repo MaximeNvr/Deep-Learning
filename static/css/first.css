@@ -1,0 +1,21 @@
+body {
+    background-image: url('../images/background.jpg'); /* Set background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+    overflow: hidden; /* Hide overflow */
+}
+textarea {
+    resize: both; /* Allow both horizontal and vertical resizing */
+    max-height: 60vh; /* Set max height */
+    min-height: 15vh !important; /* Set min height */
+    max-width: 140vh; /* Set max width */
+    min-width: 40vh; /* Set min width */
+    background-color: rgba(191, 193, 194, 0.5) !important; /* Semi-transparent background */
+    border: none !important; /* Remove border */
+    color: white !important; /* Set text color to white */
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.3); 
+}
