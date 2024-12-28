@@ -11,11 +11,11 @@
 1. Docker : Assurez-vous que Docker est installé sur votre machine. 
 2. GPU NVIDIA (optionnel) : Si vous prévoyez d'utiliser un GPU, vérifier que votre système possède un GPU NVIDIA configuré et reconnu. 
 
-- Pour vérifier
+- Pour vérifier :
 
         nvidia-smi
 
-- Si la commande retourne des information sur votre GPU, il est correctement configuré, sinon : 
+- Si  la commande retourne des informations sur votre GPU, tout est en ordre.
 
 3. NVIDIA Container Toolkit : Si vous utilisez un GPU, installez cet outil en suivant les instructions ci-dessous.
 
@@ -75,7 +75,7 @@
 
 1. Afficher les logs du conteneur :
 
-    docker logs <container_id_or_name>
+        docker logs <container_id_or_name>
 
 2. Vérifier que TensorFlow utilise le GPU :
 Si vous pensez que le GPU n'est pas utilisé correctement, vérifiez avec la commande nvidia-smi dans le conteneur (voir section ci-dessus).
