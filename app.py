@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # Constants
 MIN_CHAR_LIMIT = 100
-MAX_SEQUENCE_LENGTH = 100  # Same as during training
+MAX_SEQUENCE_LENGTH = 1000  # Same as during training
 VOCAB_SIZE = 2000  # Update based on your training settings
 
 # Load model and tokenizer
