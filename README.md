@@ -1,91 +1,91 @@
-# Construire image Docker  
+# Build Docker Image  
 
     docker build -t flask-deep-learning-gpu .
 
-#  Lancer le conteneur avec gpu 
+# Run the Container with GPU 
 
     docker run --gpus all -p 5000:5000 flask-deep-learning-gpu
 
-# Prérequis 
+# Prerequisites 
 
-1. Docker : Assurez-vous que Docker est installé sur votre machine. 
-2. GPU NVIDIA (optionnel) : Si vous prévoyez d'utiliser un GPU, vérifier que votre système possède un GPU NVIDIA configuré et reconnu. 
+1. **Docker**: Ensure Docker is installed on your machine.  
+2. **NVIDIA GPU (optional)**: If you plan to use a GPU, verify that your system has a properly configured and recognized NVIDIA GPU.  
 
-- Pour vérifier :
+- To verify:
 
         nvidia-smi
 
-- Si  la commande retourne des informations sur votre GPU, tout est en ordre.
+- If the command returns information about your GPU, everything is set up correctly.
 
-3. NVIDIA Container Toolkit : Si vous utilisez un GPU, installez cet outil en suivant les instructions ci-dessous.
+3. **NVIDIA Container Toolkit**: If you are using a GPU, install this tool by following the instructions below.
 
-# Installer NVIDIA Container Toolkit 
+# Install NVIDIA Container Toolkit 
 
-### Vérifier votre distribution
+### Check your distribution
 
     distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 
-### Ajouter le dépôt NVIDIA Docker 
+### Add NVIDIA Docker repository  
 
     curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
 
     curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
 
-### Mettre à jour et installer le toolkit
+### Update and install the toolkit
 
     sudo apt update
 
     sudo apt install -y nvidia-container-toolkit
 
-### Redémarrer Docker
+### Restart Docker
 
     sudo systemctl restart docker
 
 
-# Vérification du GPU dans le conteneur
+# Verify GPU in the Container
 
     docker exec -it <container_id_or_name> nvidia-smi
 
 
-# Fichiers et répertoires importants
+# Important Files and Directories
 
-### Voici la structure du projet et l'utilité de chaque fichier :
+### Here is the project structure and the purpose of each file:
 
-- app.py : Fichier principal qui contient l'application Flask.
+- **app.py**: Main file containing the Flask application.
 
-- monModel.h5 : Modèle de deep learning pré-entrané.
+- **monModel.h5**: Pre-trained deep learning model.
 
-- tokenizer.pkl : Tokenizer sauvegardé pour le pré-traitement des textes.
+- **tokenizer.pkl**: Saved tokenizer for text preprocessing.
 
-- requirements.txt : Liste des dépendances Python nécessaires.
+- **requirements.txt**: List of required Python dependencies.
 
-- static/ : Dossier contenant les fichiers CSS, JavaScript et images pour l'interface utilisateur.
+- **static/**: Directory containing CSS, JavaScript, and images for the user interface.
 
-- templates/ : Dossier contenant les fichiers HTML pour l'interface utilisateur.
+- **templates/**: Directory containing HTML files for the user interface.
 
-# Tester l'application Flask
+# Test the Flask Application
 
-1. Après avoir lancé le conteneur avec la commande docker run : 
+1. After starting the container with the `docker run` command: 
     
-    Ouvrez votre navigateur à l'adresse suivante : http://localhost:5000.
+    Open your browser at the following address: [http://localhost:5000](http://localhost:5000).
 
-2. Entrez un texte dans le champ prévu et cliquez sur "Vérifier" pour voir si le texte est humain ou généré par une IA.
+2. Enter a text in the provided field and click "Verify" to see if the text is human or AI-generated.
 
-# En cas de problèmes
+# Troubleshooting
 
-1. Afficher les logs du conteneur :
+1. Show container logs:
 
         docker logs <container_id_or_name>
 
-2. Vérifier que TensorFlow utilise le GPU :
-Si vous pensez que le GPU n'est pas utilisé correctement, vérifiez avec la commande nvidia-smi dans le conteneur (voir section ci-dessus).
+2. Verify TensorFlow is using the GPU:  
+If you believe the GPU is not being used properly, check with the `nvidia-smi` command inside the container (see section above).
 
-# Utilisation sans GPU
+# Use Without GPU
 
-Si vous ne souhaitez pas utiliser le GPU, modifiez la ligne suivante dans le Dockerfile :
+If you do not wish to use the GPU, modify the following line in the Dockerfile:
 
     FROM tensorflow/tensorflow:2.13.0-gpu
 
-Par :
+Replace with:
 
     FROM tensorflow/tensorflow:2.13.0
