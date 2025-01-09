@@ -67,7 +67,7 @@
 
 1. After starting the container with the `docker run` command: 
     
-    Open your browser at the following address: [http://localhost:5000](http://localhost:5000).
+    Open your browser at the following address: [http://0.0.0.0:5000](http://localhost:5000).
 
 2. Enter a text in the provided field and click "Verify" to see if the text is human or AI-generated.
 
